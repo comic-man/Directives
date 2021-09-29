@@ -15,7 +15,8 @@
           {{ odd }}
         </li>
       </div>
-      <div *ngIf="!onlyOdd">
+      <ng-template [ngIf]="!onlyOdd">
+      <div>
         <li
         class="list-group-item"
         [ngClass]="{odd: even % 2 !== 0 }"]
@@ -24,9 +25,10 @@
           {{ even }}
         </li>
       </div>
+    </ng-template>
       </ul>
       <p appBasicHighLight>Style me with Basic</p>
-      <p appBetterHighLight>Style me with Better</p>
+      <p [appBetterHighLight]="'red'" [defaultColor]="'yellow'">Style me with Better</p>
     </div>
   </div>
 </div>
